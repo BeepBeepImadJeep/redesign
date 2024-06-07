@@ -14,6 +14,7 @@ const initMainBannerSlider = () => {
       bulletActiveClass: "pagination-bullet-active",
       horizontalClass: "pagination-horizontal",
       modifierClass: "pagination-",
+      clickable: true,
     },
   });
 }
@@ -90,6 +91,7 @@ const initMainAboutRightSlider = () => {
       bulletActiveClass: "pagination-bullet-active-red",
       horizontalClass: "pagination-horizontal",
       modifierClass: "pagination-red-",
+      clickable: true,
     },
   });
 }
@@ -110,6 +112,7 @@ const initMainAboutLeftSlider = () => {
       bulletActiveClass: "pagination-bullet-active-red",
       horizontalClass: "pagination-horizontal",
       modifierClass: "pagination-",
+      clickable: true,
     },
   });
 }
@@ -125,6 +128,16 @@ const initMainReviewsSlider = () => {
       prevEl: ".navigation-product-button-prev-reviews",
       disabledClass: "navigation-product-button-disabled",
     },
+    on: {
+      reachEnd: function () {
+        this.el.classList.add('no-gradient');
+      },
+      slideChangeTransitionStart: function () {
+        if (this.previousIndex > this.activeIndex) {
+          this.el.classList.remove('no-gradient');
+        }
+      },
+    }
   });
 }
 
@@ -141,36 +154,6 @@ const initMainArticlesSlider = () => {
     },
   });
 }
-
-// window.addEventListener('scroll', function() {
-//   let btnModalText = document.querySelector('.button-circle p');
-//   if (window.scrollY > 100) {
-//     btnModalText.classList.add('hidden');
-//   } else {
-//     btnModalText.classList.remove('hidden');
-//   }
-// });
-
-// function moveButton() {
-//   let buttonAdvanced  = document.querySelector('.block-advanced .button');
-//   let advancedList    = document.querySelector('.advanced-list');
-//   let advancedCaption = document.querySelector('.advanced-caption');
-//   let buttonInfo      = document.querySelector('.block-info .button');
-//   let infoContent     = document.querySelector('.info-content');
-//   let infoList        = document.querySelector('.info-list');
-
-//   if (window.innerWidth < 767) {
-//     advancedList.parentNode.insertBefore(buttonAdvanced, advancedList.nextSibling);
-//   } else {
-//     advancedCaption.insertBefore(buttonAdvanced, advancedCaption.lastChild);
-//   }
-
-//   if (window.innerWidth < 991) {
-//     infoList.parentNode.insertBefore(buttonInfo, infoList.nextSibling);
-//   } else {
-//     infoContent.insertBefore(buttonInfo, infoContent.lastChild);
-//   }
-// }
 
 const initMainScripts = () => {
   initMainBannerSlider();

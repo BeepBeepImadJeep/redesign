@@ -46,20 +46,42 @@
             grid-gap: 0 4px;
             height: 25px;
             padding: 0 8px;
-            color: var(--color-white);
-            font-size: 13px;
-            font-weight: 700;
-            line-height: 16.57px;
-            text-transform: uppercase;
             border-radius: 6px;
             > span {
               padding-top: 2px;
+              color: var(--color-white);
+              font-size: 13px;
+              font-weight: 700;
+              line-height: 16.57px;
+              text-transform: uppercase;
             }
             &.new {
               background-color: var(--color-violet);
             }
             &.hold {
+              grid-gap: 0 7px;
+              width: 30px;
               background-color: #899FEE;
+              transition: .3s ease-out;
+              svg {
+                flex: 0 0 15px;
+                width: 15px;
+              }
+              > span {
+                font-weight: 500;
+                text-transform: none;
+                white-space: nowrap;
+                opacity: 0;
+                transition: .3s ease-out;
+              }
+              &:hover {
+                width: 105px;
+                transition: .3s ease-out;
+                span {
+                  opacity: 1;
+                  transition: .3s ease-out;
+                }
+              }
             }
             &.stoke {
               background-color: var(--color-yellow);
@@ -67,12 +89,135 @@
             &.popular {
               background-color: var(--color-gray);
             }
+            &.black-friday {
+              grid-gap: 0 7px;
+              width: 30px;
+              background-color: var(--color-black);
+              transition: .3s ease-out;
+              svg {
+                flex: 0 0 15px;
+                width: 15px;
+              }
+              > span {
+                font-weight: 500;
+                text-transform: none;
+                white-space: nowrap;
+                opacity: 0;
+                transition: .3s ease-out;
+              }
+              &:hover {
+                width: 139px;
+                transition: .3s ease-out;
+                span {
+                  opacity: 1;
+                  transition: .3s ease-out;
+                }
+              }
+            }
+            &.birthday {
+              grid-gap: 0 7px;
+              width: 30px;
+              background-color: var(--color-red);
+              transition: .3s ease-out;
+              svg {
+                flex: 0 0 15px;
+                width: 15px;
+              }
+              > span {
+                font-weight: 500;
+                text-transform: none;
+                white-space: nowrap;
+                opacity: 0;
+                transition: .3s ease-out;
+              }
+              &:hover {
+                width: 137px;
+                transition: .3s ease-out;
+                span {
+                  opacity: 1;
+                  transition: .3s ease-out;
+                }
+              }
+            }
+            &.march {
+              grid-gap: 0 7px;
+              width: 30px;
+              background-color: #FF778E;
+              transition: .3s ease-out;
+              svg {
+                flex: 0 0 15px;
+                width: 15px;
+                path {
+                  &:nth-child(1) {
+                    opacity: 0;
+                    transition: .3s ease-out;
+                  }
+                  &:nth-child(2) {
+                    transform: scale(2);
+                    transform-origin: 50% 50%;
+                    transition: .3s ease-out;
+                  }
+                }
+              }
+              > span {
+                font-weight: 500;
+                text-transform: none;
+                white-space: nowrap;
+                opacity: 0;
+                transition: .3s ease-out;
+              }
+              &:hover {
+                width: 87px;
+                transition: .3s ease-out;
+                svg {
+                  path {
+                    &:nth-child(1) {
+                      opacity: 1;
+                      transition: .3s ease-out;
+                    }
+                    &:nth-child(2) {
+                      transform: scale(1);
+                      transition: .3s ease-out;
+                    }
+                  }
+                }
+                span {
+                  opacity: 1;
+                  transition: .3s ease-out;
+                }
+              }
+            }
           }
         }
         .like {
           position: absolute;
           top: 12px;
           right: 12px;
+          cursor: pointer;
+          &:hover {
+            svg {
+              path {
+                stroke: var(--color-red);
+                transition: .3s ease-out;
+              }
+            }
+          }
+          svg {
+            path {
+              fill: transparent;
+              stroke: var(--color-gray);
+              transition: .3s ease-out;
+            }
+          }
+          &.active {
+            svg {
+              path {
+                fill: var(--color-red);
+                stroke: var(--color-red);
+                transition: .3s ease-out;
+              }
+            }
+          }
         }
         .img {
           width: 100%;
@@ -86,9 +231,12 @@
       .price-block {
         display: flex;
         grid-gap: 0 22px;
+        &.price-hidden {
+          filter: blur(5px);
+        }
         span {
           font-size: 22px;
-          font-weight: 500;
+          font-weight: 700;
           line-height: 26.4px;
         }
         .new {
@@ -96,9 +244,11 @@
         }
         .old {
           color: var(--color-gray);
+          font-weight: 500;
           text-decoration: line-through;
         }
         .discount {
+          font-weight: 500;
           color: var(--color-red);
         }
       }

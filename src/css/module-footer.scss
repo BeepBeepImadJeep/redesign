@@ -37,7 +37,9 @@
     }
   }
   &-callback {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 60px 0;
     align-items: center;
     padding: 233px 70px 90px;
     .logo {
@@ -74,8 +76,32 @@
             font-weight: 500;
             line-height: 22.95px;
             white-space: nowrap;
+            transition: .3s ease-out;
+            &:hover {
+              color: var(--color-red);
+              transition: .3s ease-out;
+            }
           }
         }
+      }
+    }
+    .block-social {
+      &.col-span-2 {
+        grid-column: 1/2;
+      }
+    }
+    .subscription {
+      display: flex;
+      grid-gap: 0 102px;
+      &.col-span-3 {
+        grid-column: 2/3;
+      }
+      p {
+        max-width: 506px;
+        color: var(--color-gray);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20.4px;
       }
     }
   }

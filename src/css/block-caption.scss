@@ -12,6 +12,9 @@
       font-size: 40px;
       font-weight: 500;
       line-height: 52px;
+      > span {
+        color: var(--color-red);
+      }
     }
     p {
       color: var(--color-black);
